@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "../components/Container";
+import createInvoice from "../lib/createInvoice";
 import Form from "../components/Form";
 
 export default function New() {
@@ -12,7 +13,7 @@ export default function New() {
         </Link>
 
         <div className="bg-white p-5 rounded-lg">
-          <Form />
+          <Form fn={createInvoice} />
         </div>
       </div>
     </Container>

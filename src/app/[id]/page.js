@@ -25,9 +25,11 @@ export default async function Invoice({ params }) {
                     {items.status}
                   </span>
                 </div>
-                <button className="rounded-full px-5 py-3 bg-gray-300 mr-3 text-gray-500">
-                  Edit
-                </button>
+                <Link href={`/edit/${items.id}`}>
+                  <button className="rounded-full px-5 py-3 bg-gray-300 mr-3 text-gray-500">
+                    Edit
+                  </button>
+                </Link>
                 <button className="rounded-full px-5 py-3 bg-red-500 text-white mr-3">
                   Delete
                 </button>

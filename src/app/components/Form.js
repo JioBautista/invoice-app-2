@@ -1,8 +1,6 @@
-import createInvoice from "../lib/createInvoice";
-
-export default function Form() {
+export default function Form({ fn }) {
   return (
-    <form action={createInvoice}>
+    <form action={fn}>
       <div className="grid grid-cols-3 gap-5 mb-12">
         <label>
           Name
