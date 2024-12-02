@@ -18,6 +18,7 @@ export default function Form({ fn, defaultValue }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="email"
+            defaultValue={defaultValue ? defaultValue[0].email : null}
           />
         </label>
 
@@ -27,6 +28,7 @@ export default function Form({ fn, defaultValue }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="address"
+            defaultValue={defaultValue ? defaultValue[0].address : null}
           />
         </label>
 
@@ -36,6 +38,7 @@ export default function Form({ fn, defaultValue }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="city"
+            defaultValue={defaultValue ? defaultValue[0].city : null}
           />
         </label>
 
@@ -45,6 +48,7 @@ export default function Form({ fn, defaultValue }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="postcode"
+            defaultValue={defaultValue ? defaultValue[0].postcode : null}
           />
         </label>
 
@@ -54,6 +58,7 @@ export default function Form({ fn, defaultValue }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="country"
+            defaultValue={defaultValue ? defaultValue[0].country : null}
           />
         </label>
 
@@ -63,6 +68,7 @@ export default function Form({ fn, defaultValue }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="description"
+            defaultValue={defaultValue ? defaultValue[0].description : null}
           />
         </label>
 
@@ -73,6 +79,7 @@ export default function Form({ fn, defaultValue }) {
             className="border-2 rounded-sm block p-1 w-full"
             placeholder="$"
             name="total"
+            defaultValue={defaultValue ? defaultValue[0].total : null}
           />
         </label>
 
