@@ -1,4 +1,4 @@
-export default function Form({ fn }) {
+export default function Form({ fn, defaultValue }) {
   return (
     <form action={fn}>
       <div className="grid grid-cols-3 gap-5 mb-12">
@@ -8,6 +8,7 @@ export default function Form({ fn }) {
             type="text"
             className="border-2 rounded-sm block p-1 w-full"
             name="name"
+            defaultValue={defaultValue ? defaultValue[0].name : null}
           />
         </label>
 
