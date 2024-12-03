@@ -2,22 +2,14 @@ import { sql } from "@vercel/postgres";
 import Container from "../components/Container";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import deleteInvoice from "../lib/deleteInvoice";
+import markInvoice from "../lib/markInvoice";
 
 export default async function Invoice({ params }) {
   const id = (await params).id;
   const { rows } = await sql`SELECT * FROM client WHERE id=${id}`;
-
-  async function markInvoice() {
-    "use server";
-    await sql`UPDATE client SET status = 'paid' WHERE id=${id}`;
-    redirect("/");
-  }
-
-  async function deleteInvoice() {
-    "use server";
-    await sql`DELETE FROM client WHERE id=${id}`;
-    redirect("/");
-  }
+  const deleteInvoiceWithId = deleteInvoice.bind(null, id);
+  const markInvoiceWithId = markInvoice.bind(null, id);
 
   console.log(rows);
   return (
@@ -44,7 +36,7 @@ export default async function Invoice({ params }) {
                   </button>
                 </Link>
 
-                <form action={deleteInvoice}>
+                <form action={deleteInvoiceWithId}>
                   <button
                     className="rounded-full px-5 py-3 bg-red-500 text-white mr-3"
                     type="submit"
@@ -53,7 +45,7 @@ export default async function Invoice({ params }) {
                   </button>
                 </form>
 
-                <form action={markInvoice}>
+                <form action={markInvoiceWithId}>
                   <button className="rounded-full px-5 py-3 bg-blue-500 text-white">
                     Mark as Paid
                   </button>
