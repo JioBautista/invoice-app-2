@@ -10,14 +10,14 @@ export default async function Home() {
   console.log(rows);
   return (
     <Container>
-      <Filter />
+      <Filter data={rows} />
       <div className="py-5">
         {rows.map((items) => (
           <>
             <Link href={`/${items.id}`}>
               <div
                 key={items.id}
-                className="bg-white mb-5 p-5 rounded flex items-center justify-between"
+                className="bg-white mb-5 p-5 rounded flex items-center justify-between shadow"
               >
                 {items.status === "Paid" ? (
                   <p className="text-gray-500">
