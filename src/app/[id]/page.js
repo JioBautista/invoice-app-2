@@ -1,13 +1,25 @@
 import { sql } from "@vercel/postgres";
 import Container from "../components/Container";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Invoice({ params }) {
   const id = (await params).id;
   const { rows } = await sql`SELECT * FROM client WHERE id=${id}`;
 
-  console.log(rows);
+  async function markInvoice() {
+    "use server";
+    await sql`UPDATE client SET status = 'paid' WHERE id=${id}`;
+    redirect("/");
+  }
 
+  async function deleteInvoice() {
+    "use server";
+    await sql`DELETE FROM client WHERE id=${id}`;
+    redirect("/");
+  }
+
+  console.log(rows);
   return (
     <Container>
       <div className="space-y-5 py-5">
@@ -25,17 +37,27 @@ export default async function Invoice({ params }) {
                     {items.status}
                   </span>
                 </div>
+
                 <Link href={`/edit/${items.id}`}>
                   <button className="rounded-full px-5 py-3 bg-gray-300 mr-3 text-gray-500">
                     Edit
                   </button>
                 </Link>
-                <button className="rounded-full px-5 py-3 bg-red-500 text-white mr-3">
-                  Delete
-                </button>
-                <button className="rounded-full px-5 py-3 bg-blue-500 text-white">
-                  Mark as Paid
-                </button>
+
+                <form action={deleteInvoice}>
+                  <button
+                    className="rounded-full px-5 py-3 bg-red-500 text-white mr-3"
+                    type="submit"
+                  >
+                    Delete
+                  </button>
+                </form>
+
+                <form action={markInvoice}>
+                  <button className="rounded-full px-5 py-3 bg-blue-500 text-white">
+                    Mark as Paid
+                  </button>
+                </form>
               </div>
 
               <div className="bg-white p-5 grid grid-cols-2 gap-5 rounded-md">
