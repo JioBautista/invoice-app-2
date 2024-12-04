@@ -1,7 +1,6 @@
 import { sql } from "@vercel/postgres";
 import Container from "../components/Container";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import deleteInvoice from "../lib/deleteInvoice";
 import markInvoice from "../lib/markInvoice";
 

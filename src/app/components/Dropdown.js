@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function Dropdown() {
-  const [filter, setFilter] = React.useState();
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <div
@@ -12,8 +13,12 @@ export default function Dropdown() {
       Filter by status
       {isOpen && (
         <div className="bg-white p-5 absolute inset-x-0 -bottom-32 space-y-5 rounded-md shadow-xl">
-          <p>Paid</p>
-          <p>Pending</p>
+          <Link href={"filter/paid"} className="block">
+            Paid
+          </Link>
+          <Link href={"filter/pending"} className="block">
+            Pending
+          </Link>
         </div>
       )}
     </div>
