@@ -1,12 +1,13 @@
 import Container from "@/app/components/Container";
 import Form from "@/app/components/Form";
 import Link from "next/link";
-import createInvoice from "@/app/lib/createInvoice";
+import updateInvoice from "@/app/lib/updateInvoice";
 import { sql } from "@vercel/postgres";
 
 export default async function editInvoice({ params }) {
   const id = (await params).id;
   const { rows } = await sql`SELECT * FROM client WHERE id=${id}`;
+  const updateInvoiceWithId = updateInvoice.bind(null, id);
 
   return (
     <Container>
@@ -17,7 +18,7 @@ export default async function editInvoice({ params }) {
         </Link>
 
         <div className="bg-white p-5 rounded-lg">
-          <Form fn={createInvoice} defaultValue={rows} />
+          <Form fn={updateInvoiceWithId} defaultValue={rows} />
         </div>
       </div>
     </Container>
