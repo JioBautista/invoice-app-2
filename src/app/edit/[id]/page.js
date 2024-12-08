@@ -13,7 +13,7 @@ export default async function editInvoice({ params }) {
     <Container>
       <div className="py-5 space-y-5">
         <h1 className="text-4xl font-bold tracking-wide">Edit Invoice</h1>
-        <Link href={"/"} className="font-bold bg-red-500">
+        <Link href={"/"} className="font-bold p-2 inline-block">
           Go Back
         </Link>
 

@@ -8,7 +8,7 @@ export default function New() {
     <Container>
       <div className="py-5 space-y-5">
         <h1 className="text-4xl font-bold tracking-wide">New Invoice</h1>
-        <Link href={"/"} className="font-bold block">
+        <Link href={"/"} className="font-bold inline-block p-2">
           Go Back
         </Link>
 

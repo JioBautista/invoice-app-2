@@ -12,7 +12,8 @@ export default function Dropdown() {
       className="bg-white py-2 px-5 rounded-md font-bold relative cursor-pointer"
       onClick={() => setIsOpen(!isOpen)}
     >
-      Filter by status
+      <p className="md:hidden">Filter</p>
+      <p className="hidden md:block">Filter by status</p>
       {isOpen && (
         <div className="bg-white p-5 absolute inset-x-0 -bottom-32 space-y-5 rounded-md shadow-xl">
           {status ? (

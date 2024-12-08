@@ -21,23 +21,29 @@ export default async function Invoice({ params }) {
         {rows.map((items) => (
           <>
             <div className="py-5 space-y-8">
-              <div className="flex items-center justify-center bg-white p-5 rounded-md flex-wrap">
+              <div className="flex items-center justify-center bg-white p-5 rounded-md gap-2">
                 <div className="hidden md:block grow">
                   <h1 className="text-gray-500 inline mr-5">Status</h1>
-                  <span className="grow rounded-md bg-red-100 px-5 py-2 font-bold text-red-500">
-                    {items.status}
-                  </span>
+                  {items.status === "Paid" ? (
+                    <span className="rounded-md bg-teal-100 text-teal-500 py-2 px-5 font-bold grow">
+                      Paid
+                    </span>
+                  ) : (
+                    <span className="rounded-md bg-amber-100 text-amber-500 px-5 py-2 font-bold grow">
+                      Pending
+                    </span>
+                  )}
                 </div>
 
                 <Link href={`/edit/${items.id}`}>
-                  <button className="rounded-full px-5 py-3 bg-gray-300 mr-3 text-gray-500">
+                  <button className="rounded-full px-4 py-3 bg-gray-300 text-gray-500">
                     Edit
                   </button>
                 </Link>
 
                 <form action={deleteInvoiceWithId}>
                   <button
-                    className="rounded-full px-5 py-3 bg-red-500 text-white mr-3"
+                    className="rounded-full px-4 py-3 bg-red-500 text-white"
                     type="submit"
                   >
                     Delete
@@ -45,7 +51,7 @@ export default async function Invoice({ params }) {
                 </form>
 
                 <form action={markInvoiceWithId}>
-                  <button className="rounded-full px-5 py-3 bg-blue-500 text-white">
+                  <button className="rounded-full px-4 py-3 bg-blue-500 text-white">
                     Mark as Paid
                   </button>
                 </form>
@@ -54,9 +60,15 @@ export default async function Invoice({ params }) {
               <div className="bg-white p-5 grid grid-cols-2 gap-5 rounded-md">
                 <div className="sm:block md:hidden grow col-span-2">
                   <h1 className="text-gray-500 inline mr-5">Status</h1>
-                  <span className="grow rounded-md bg-red-100 px-5 py-2 font-bold text-red-500">
-                    {items.status}
-                  </span>
+                  {items.status === "Paid" ? (
+                    <span className="rounded-md bg-teal-100 text-teal-500 py-2 px-5 font-bold justify-self-end">
+                      Paid
+                    </span>
+                  ) : (
+                    <span className="rounded-md bg-amber-100 text-amber-500 px-5 py-2 font-bold justify-self-end">
+                      Pending
+                    </span>
+                  )}
                 </div>
 
                 <h1 className="col-span-2 text-xl font-bold tracking-wide">
