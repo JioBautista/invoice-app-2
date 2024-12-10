@@ -1,6 +1,7 @@
 export default function Form({ fn, defaultValue }) {
   const inputStyles = "border-2 rounded-md block p-3 w-full font-bold mt-2";
   const spanStyles = "text-gray-500";
+
   return (
     <form action={fn}>
       <div className="flex flex-col md:grid md:grid-cols-3 gap-5 mb-12">

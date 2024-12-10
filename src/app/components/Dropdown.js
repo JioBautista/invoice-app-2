@@ -15,7 +15,7 @@ export default function Dropdown() {
       <p className="md:hidden">Filter</p>
       <p className="hidden md:block">Filter by status</p>
       {isOpen && (
-        <div className="bg-white p-5 absolute inset-x-0 -bottom-32 space-y-5 rounded-md shadow-xl">
+        <div className="bg-white p-5 absolute inset-x-0 -bottom-32 space-y-5 rounded-md shadow-xl w-32">
           {status ? (
             <>
               <label className="block flex items-center gap-3">
