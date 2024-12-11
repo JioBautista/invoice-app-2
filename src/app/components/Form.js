@@ -1,5 +1,6 @@
 export default function Form({ fn, defaultValue }) {
-  const inputStyles = "border-2 rounded-md block p-3 w-full font-bold mt-2";
+  const inputStyles =
+    "border-2 rounded-md block p-3 w-full font-bold mt-2 dark:bg-[#1E2139] dark:border-none dark:text-white";
   const spanStyles = "text-gray-500";
 
   return (
@@ -95,7 +96,7 @@ export default function Form({ fn, defaultValue }) {
         type="submit"
         className="rounded-full bg-blue-500 p-4 text-white ml-auto block"
       >
-        Submit
+        {defaultValue ? "Save Changes" : "Save & Send"}
       </button>
     </form>
   );

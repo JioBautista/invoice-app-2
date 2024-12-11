@@ -11,13 +11,13 @@ export default async function editInvoice({ params }) {
 
   return (
     <Container>
-      <div className="py-5 space-y-5">
+      <div className="py-5 space-y-5 dark:text-white">
         <h1 className="text-4xl font-bold tracking-wide">Edit Invoice</h1>
         <Link href={"/"} className="font-bold p-2 inline-block">
           Go Back
         </Link>
 
-        <div className="bg-white p-5 rounded-lg">
+        <div className="bg-white p-5 rounded-lg dark:bg-transparent">
           <Form fn={updateInvoiceWithId} defaultValue={rows} />
         </div>
       </div>

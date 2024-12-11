@@ -6,7 +6,7 @@ export default async function Filter({ data }) {
   return (
     <div className="py-5 flex items-center justify-between gap-5">
       <div className="flex-grow">
-        <h1 className="text-2xl md:text-4xl font-bold tracking-wide">
+        <h1 className="text-2xl md:text-4xl font-bold tracking-wide dark:text-white">
           Invoices
         </h1>
         <span className="text-gray-500 md:hidden">{data.length} Invoices</span>
