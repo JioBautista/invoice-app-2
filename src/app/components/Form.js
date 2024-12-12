@@ -13,16 +13,18 @@ export default function Form({ fn, defaultValue }) {
             className={inputStyles}
             name="name"
             defaultValue={defaultValue ? defaultValue[0].name : null}
+            required
           />
         </label>
 
         <label>
           <span className={spanStyles}>Email</span>
           <input
-            type="text"
+            type="email"
             className={inputStyles}
             name="email"
             defaultValue={defaultValue ? defaultValue[0].email : null}
+            required
           />
         </label>
 
@@ -33,6 +35,7 @@ export default function Form({ fn, defaultValue }) {
             className={inputStyles}
             name="address"
             defaultValue={defaultValue ? defaultValue[0].address : null}
+            required
           />
         </label>
 
@@ -43,6 +46,7 @@ export default function Form({ fn, defaultValue }) {
             className={inputStyles}
             name="city"
             defaultValue={defaultValue ? defaultValue[0].city : null}
+            required
           />
         </label>
 
@@ -53,6 +57,7 @@ export default function Form({ fn, defaultValue }) {
             className={inputStyles}
             name="postcode"
             defaultValue={defaultValue ? defaultValue[0].postcode : null}
+            required
           />
         </label>
 
@@ -63,6 +68,7 @@ export default function Form({ fn, defaultValue }) {
             className={inputStyles}
             name="country"
             defaultValue={defaultValue ? defaultValue[0].country : null}
+            required
           />
         </label>
 
@@ -73,6 +79,7 @@ export default function Form({ fn, defaultValue }) {
             className={inputStyles}
             name="description"
             defaultValue={defaultValue ? defaultValue[0].description : null}
+            required
           />
         </label>
 
@@ -84,12 +91,13 @@ export default function Form({ fn, defaultValue }) {
             placeholder="$"
             name="total"
             defaultValue={defaultValue ? defaultValue[0].total : null}
+            required
           />
         </label>
 
         <label>
           <span className={spanStyles}>Due Date</span>
-          <input type="date" className={inputStyles} name="duedate" />
+          <input type="date" className={inputStyles} name="duedate" required />
         </label>
       </div>
       <button
