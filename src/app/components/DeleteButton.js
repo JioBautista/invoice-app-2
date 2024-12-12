@@ -7,10 +7,10 @@ export default function DeleteButton({ children }) {
   return (
     <div>
       <button
-        className="bg-white px-4 py-3 rounded-full text-black"
+        className="px-4 py-3 rounded-full text-white bg-red-500"
         onClick={() => setToggle(!toggle)}
       >
-        Test Delete
+        Delete
       </button>
       {toggle && children}
     </div>

@@ -44,18 +44,9 @@ export default async function Invoice({ params }) {
                   </button>
                 </Link>
 
-                <form action={deleteInvoiceWithId}>
-                  <button
-                    className="rounded-full px-4 py-3 bg-red-500 text-white"
-                    type="submit"
-                  >
-                    Delete
-                  </button>
-                </form>
-
                 <DeleteButton>
                   <Modal id={id} />
-                  <div className="bg-black opacity-25 absolute inset-0 z-0 h-screen"></div>
+                  <div className="bg-black opacity-50 absolute inset-0 z-0 h-screen"></div>
                 </DeleteButton>
 
                 <form action={markInvoiceWithId}>
