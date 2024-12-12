@@ -3,6 +3,8 @@ import Container from "../components/Container";
 import Link from "next/link";
 import deleteInvoice from "../lib/deleteInvoice";
 import markInvoice from "../lib/markInvoice";
+import DeleteButton from "../components/DeleteButton";
+import Modal from "../components/Modal";
 
 export default async function Invoice({ params }) {
   const id = (await params).id;
@@ -22,6 +24,7 @@ export default async function Invoice({ params }) {
           <>
             <div className="py-5 space-y-8">
               <div className="flex items-center justify-center bg-white p-5 rounded-md gap-2 dark:bg-[#1E2139]">
+                {/* STATUS DIV */}
                 <div className="hidden md:block grow">
                   <h1 className="text-gray-500 inline mr-5">Status</h1>
                   {items.status === "Paid" ? (
@@ -49,6 +52,11 @@ export default async function Invoice({ params }) {
                     Delete
                   </button>
                 </form>
+
+                <DeleteButton>
+                  <Modal id={id} />
+                  <div className="bg-black opacity-25 absolute inset-0 z-0 h-screen"></div>
+                </DeleteButton>
 
                 <form action={markInvoiceWithId}>
                   <button className="rounded-full px-4 py-3 bg-blue-500 text-white">
