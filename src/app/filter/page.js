@@ -3,12 +3,9 @@ import Filter from "@/app/components/Filter";
 import { sql } from "@vercel/postgres";
 import List from "@/app/components/List";
 
-export default async function invoiceStatus({ params }) {
-  const status = (await params).status;
-  const capitalLetter = status.charAt(0).toUpperCase() + status.slice(1);
-  const { rows } =
-    await sql`SELECT * FROM client WHERE status = ${capitalLetter}`;
-
+export default async function invoiceStatus({ searchParams }) {
+  const filters = (await searchParams).status;
+  const { rows } = await sql`SELECT * FROM client WHERE status = ${filters}`;
   return (
     <Container>
       <Filter data={rows} />
